@@ -1,5 +1,5 @@
 {
-  "name": "simple-uploader",
+  "name": "r-simple-uploader",
   "githubOwner": "mycolorway",
   "version": "3.0.0",
   "description": "A HTML5 upload component without UI",
