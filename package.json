@@ -1,5 +1,5 @@
 {
-  "name": "simple-uploader",
+  "name": "f-simple-uploader",
   "githubOwner": "mycolorway",
   "version": "3.0.0",
   "description": "A HTML5 upload component without UI",
@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/mycolorway/simple-uploader/issues"
   },
-  "scripts":{
+  "scripts": {
     "start": "gulp",
     "test": "gulp test"
   },
@@ -22,14 +22,23 @@
   "umd": {
     "name": "SimpleUploader",
     "dependencies": {
-      "cjs": ["jquery","simple-module"],
-      "global": ["jQuery","SimpleModule"],
-      "params": ["$","SimpleModule"]
+      "cjs": [
+        "jquery",
+        "simple-module"
+      ],
+      "global": [
+        "jQuery",
+        "SimpleModule"
+      ],
+      "params": [
+        "$",
+        "SimpleModule"
+      ]
     }
   },
   "dependencies": {
-    "jquery": "~3.1.0",
-    "simple-module": "~3.0.0"
+    "jquery": "^3.2.1",
+    "simple-module": "^3.0.3"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
