@@ -116,7 +116,7 @@ SimpleUploader = (function(superClass) {
       return;
     }
     this.files.push(file);
-    this._xhrUpload(file, this);
+    this._xhrUpload(file, this, $);
     return this.uploading = true;
   };
 
