@@ -139,16 +139,21 @@ SimpleUploader = (function(superClass) {
     };
   };
 
-  SimpleUploader.prototype._xhrUpload = function(file) {
-    var formData, k, ref, v;
-    formData = new FormData();
-    formData.append(file.fileKey, file.obj);
-    formData.append("original_filename", file.name);
-    if (file.params) {
-      ref = file.params;
-      for (k in ref) {
-        v = ref[k];
-        formData.append(k, v);
+  SimpleUploader.prototype._xhrUpload = function(file, _up, _jquery) {
+    var formData, gen, k, ref, v;
+    gen = this.opts.genformData;
+    if (gen) {
+      formData = gen(file, _up, _jquery);
+    } else {
+      formData = new FormData();
+      formData.append(file.fileKey, file.obj);
+      formData.append("original_filename", file.name);
+      if (file.params) {
+        ref = file.params;
+        for (k in ref) {
+          v = ref[k];
+          formData.append(k, v);
+        }
       }
     }
     return file.xhr = $.ajax({

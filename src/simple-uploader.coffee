@@ -92,11 +92,16 @@ class SimpleUploader extends SimpleModule
     ext: if name then name.split('.').pop().toLowerCase() else ''
     obj: fileObj
 
-  _xhrUpload: (file) ->
-    formData = new FormData()
-    formData.append(file.fileKey, file.obj)
-    formData.append("original_filename", file.name)
-    formData.append(k, v) for k, v of file.params if file.params
+  _xhrUpload: (file, _up, _jquery) ->
+    gen = @opts.genformData
+
+    if gen
+      formData = gen(file, _up, _jquery)
+    else
+      formData = new FormData()
+      formData.append(file.fileKey, file.obj)
+      formData.append("original_filename", file.name)
+      formData.append(k, v) for k, v of file.params if file.params
 
     file.xhr = $.ajax
       url: file.url

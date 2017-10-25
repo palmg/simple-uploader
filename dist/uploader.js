@@ -132,7 +132,7 @@ Uploader = (function(superClass) {
   };
 
   Uploader.prototype._xhrUpload = function(file) {
-    var formData, k, ref, v;
+    var formData, k, ref, v, gen = this.opts.generateFormData;
     formData = new FormData();
     formData.append(file.fileKey, file.obj);
     formData.append("original_filename", file.name);
