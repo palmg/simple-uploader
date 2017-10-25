@@ -74,7 +74,7 @@ class SimpleUploader extends SimpleModule
     return if @trigger('beforeupload', [file]) == false
 
     @files.push file
-    @_xhrUpload file
+    @_xhrUpload file, @
     @uploading = true
 
   getFile: (fileObj) ->
