@@ -21,6 +21,8 @@ class SimpleUploader extends SimpleModule
     @queue = [] #files waiting to be uploaded
     @uploading = false
     @id = ++ SimpleUploader.count
+    if opts.fileUpload and typeof opts.fileUpload == "function"
+      SimpleUploader.prototype._xhrUpload = opts.fileUpload
 
     @_bind()
 

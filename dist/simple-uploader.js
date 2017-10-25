@@ -1,12 +1,12 @@
 /**
- * simple-uploader v3.0.0
+ * r-simple-uploader v3.0.0
  * https://github.com/mycolorway/simple-uploader
  *
  * Copyright Mycolorway Design
  * Released under the MIT license
  * https://github.com/mycolorway/simple-uploader/license.html
  *
- * Date: 2016-08-2
+ * Date: 2017-10-25
  */
 ;(function(root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -46,6 +46,9 @@ SimpleUploader = (function(superClass) {
     this.queue = [];
     this.uploading = false;
     this.id = ++SimpleUploader.count;
+    if (opts.fileUpload && typeof opts.fileUpload === "function") {
+      SimpleUploader.prototype._xhrUpload = opts.fileUpload;
+    }
     this._bind();
   }
 
