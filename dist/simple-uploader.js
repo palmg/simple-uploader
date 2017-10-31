@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/mycolorway/simple-uploader/license.html
  *
- * Date: 2017-10-25
+ * Date: 2017-10-31
  */
 ;(function(root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -141,9 +141,11 @@ SimpleUploader = (function(superClass) {
 
   SimpleUploader.prototype._xhrUpload = function(file, _up, _jquery) {
     var formData, gen, k, ref, v;
-    gen = this.opts.genformData;
-    if (gen) {
+    gen = this.opts.formData;
+    if ('function' === typeof gen) {
       formData = gen(file, _up, _jquery);
+    } else if ('object' === typeof gen && gen.generate) {
+      formData = gen.generate(file, _up, _jquery);
     } else {
       formData = new FormData();
       formData.append(file.fileKey, file.obj);

@@ -93,10 +93,11 @@ class SimpleUploader extends SimpleModule
     obj: fileObj
 
   _xhrUpload: (file, _up, _jquery) ->
-    gen = @opts.genformData
-
-    if gen
+    gen = @opts.formData
+    if 'function' == typeof gen
       formData = gen(file, _up, _jquery)
+    else if 'object' == typeof gen and gen.generate
+      formData = gen.generate(file, _up, _jquery)
     else
       formData = new FormData()
       formData.append(file.fileKey, file.obj)
