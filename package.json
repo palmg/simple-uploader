@@ -1,24 +1,24 @@
 {
   "name": "r-simple-uploader",
-  "githubOwner": "mycolorway",
-  "version": "3.0.0",
+  "githubOwner": "palmg",
+  "version": "3.0.1",
   "description": "A HTML5 upload component without UI",
   "keywords": "upload",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mycolorway/simple-uploader.git"
+    "url": "git+https://github.com/palmg/simple-uploader.git"
   },
   "author": "farthinker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mycolorway/simple-uploader/issues"
+    "url": "https://github.com/palmg/simple-uploader/issues"
   },
   "scripts": {
     "start": "gulp",
     "test": "gulp test"
   },
   "main": "dist/simple-uploader.js",
-  "homepage": "https://github.com/mycolorway/simple-uploader",
+  "homepage": "https://github.com/palmg/simple-uploader",
   "umd": {
     "name": "SimpleUploader",
     "dependencies": {
